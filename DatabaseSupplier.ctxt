@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=DatabaseSupplier
+comment1.params=
+comment1.target=DatabaseSupplier()
+comment2.params=supplier
+comment2.target=boolean\ addSupplier(Supplier)
+comment3.params=supplier
+comment3.target=boolean\ removeSupplier(Supplier)
+comment4.params=
+comment4.target=Supplier\ getSupplier()
+comment5.params=
+comment5.target=java.lang.String[]\ getListSupplier()
+numComments=6

@@ -1,27 +1,25 @@
 
-/**
- * Write a description of class DatabaseItem here.
- *
- * @Gilang Yudharaka
- * @version (a version number or a date)
- */
-public class DatabaseItem
-{
-    private String[] listItem;
 
-    public void addItem()
-    {
-        
+public class DatabaseItem{
+    private String listItem[];
+    private Item item;
+
+    public DatabaseItem(){
     }
     
-    public void removeItem()
-    {
-        
+    public boolean addItem(Item item){
+    	return true;
     }
     
-    public void getItemDatabase()
-    {
-        
+    public boolean removeItem(Item item){
+    	return true;
+    }
+    
+    public Item getItem(){
+    	return item;
+    }
+
+    public String[] getItemDatabase(){
+    	return listItem;
     }
 }
-

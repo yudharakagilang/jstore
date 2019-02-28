@@ -1,74 +1,63 @@
-/**
- * Write a description of class DatabaseItem here.
- *
- * @Gilang Yudharaka
- * @version (a version number or a date)
- */
 
-public class Supplier
-{
-    // instance variables - replace the example below with your own
-    protected int id;
-    protected String name;
-    protected String email;
-    protected String phoneNumber;
-    protected String city;
-    
-    /**
-     * Constructor for objects of class Supplier
-    public Supplier()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-     */
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    
 
-    public Supplier(){
-    
+public class Supplier{
+
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private Location location;
+
+    public Supplier(int id, String name, String email, String phoneNumber, Location location){
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
     }
     
-   
     public int getId(){
-        return 0;
+        return id;
     }
     
     public String getName(){
-        return "";
+        return name;
     }
     
     public String getEmail(){
-        return "";
+        return email;
     }
     
     public String getPhoneNumber(){
-        return "";
+        return phoneNumber;
     }
     
-    public String getCity(){
-        return "";
+    public Location getLocation(){
+        return location;
     }
     
-
     public void setId(int id){
-        
+        this.id=id;
     }
     
     public void setName(String name){
-       
+        this.name=name;
+    }
+
+    public void setEmail(String email){
+        this.email=email;
     }
 
     public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
     }
 
-    public void setCity(String city){
+    public void setLocation(Location location){
+        this.location=location;
+    }
+
+    public void printData(){
+        System.out.println(name);
         
     }
 }
