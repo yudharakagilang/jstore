@@ -8,8 +8,9 @@
  * @version 28 Februari 2019
  */
 public class DatabaseItem{
-    private String listItem[];
-    private Item item;
+    public String listItem[];
+    //private Item item;
+    public static Item itemDB;
 
      /**
      * Constructor for objects of class DatabaseItem
@@ -23,8 +24,9 @@ public class DatabaseItem{
      * @return boolean true
      */
     
-    public boolean addItem(Item item){
-    	return true;
+    public static boolean addItem(Item item){
+    	  itemDB=item;
+        return true;
     }
        /**
      * method ini digunakan untuk menghapus item kedalam database
@@ -42,7 +44,7 @@ public class DatabaseItem{
      */
     
     public Item getItem(){
-    	return item;
+    	return itemDB;
     }
     /**
      * Method yang digunakan untuk mereturn nilai dari database item

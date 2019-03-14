@@ -12,6 +12,10 @@ public class Invoice{
     private Item item;
     private String date;
     private int totalPrice;
+    private int totalItem;
+    private InvoiceStatus status;
+
+
 
        /**
      * Constructor for objects of class Invoice
@@ -22,11 +26,12 @@ public class Invoice{
      * @param totalPrice
      */
 
-    public Invoice(int id, Item item, String date, int totalPrice){    
+    public Invoice(int id, Item item, String date, int totalPrice, InvoiceStatus status){    
         this.id=id;
         this.item=item;
         this.date=date;
         this.totalPrice=totalPrice;
+        this.status=status;
     }
     
         /**
@@ -64,11 +69,20 @@ public class Invoice{
     public int getTotalPrice(){
         return totalPrice;
     }
+
+    public InvoiceStatus status(){
+        return status;
+    }
+
+    public int getTotalItem(){
+        return totalItem;
+    }
        /**
      * Method yang digunakan untuk mengubah nilai id invoice
      * 
      * @param id adalah parameter untuk method setId
      */
+
     public void setId(int id){
         this.id=id;
     }
@@ -107,11 +121,18 @@ public class Invoice{
         this.totalPrice=totalPrice;
     }
 
+    public void setTotalItem(int totalItem){
+        this.totalItem=totalItem;
+    }
+    public void setInvoiceStatus(InvoiceStatus status){
+        this.status=status;
+    }
+
       /**
      * Method yang digunakan untuk mencetak total harga dari invoice
      * 
      */
-
+    
     public void printData(){
         System.out.println(totalPrice);
     }

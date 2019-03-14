@@ -14,21 +14,26 @@ public class Item{
     private String name;
     private int stock;
     private int price;
-    private String category;
+    private ItemCategory category;
     private Supplier supplier;
+    private ItemStatus status;
+    
+
   
     /**
      * Constructor untuk object dari class Item
      *@param name,stock,price,category,supllier
      */
 
-    public Item(int id, String name, int stock, int price, String category, Supplier supplier){
+    public Item(int id, String name, int stock, int price, ItemCategory category, Supplier supplier, ItemStatus status){
         this.id=id;
         this.name=name;
         this.stock=stock;
         this.price=price;
         this.category=category;
         this.supplier=supplier;
+        this.status=status;
+
     }
      /**
      * method untuk mereturn id barang
@@ -38,7 +43,9 @@ public class Item{
     public int getId(){
         return id;
     }
-
+    public ItemStatus getStatus(){
+        return status;
+    }
 
     /**
      * method untuk mereturn nama barang
@@ -69,7 +76,7 @@ public class Item{
      * @return String category item
      */
     
-    public String getCategory(){
+    public ItemCategory getCategory(){
         return category;
     }
         /**
@@ -116,8 +123,11 @@ public class Item{
      * @param category adalah parameter untuk method setCategory
      */
 
-    public void setCategory(String category){
+    public void setCategory(ItemCategory category){
         this.category=category;
+    }
+    public void setStatus(ItemStatus status){
+        this.status=status;
     }
     /**
      * method untuk mengubah suppliaer barang
@@ -133,6 +143,18 @@ public class Item{
      */
 
     public void printData(){
-        System.out.println(name);
+System.out.println("==========ITEM=======");
+System.out.println("ID :" + id);
+System.out.println("Name :"  + name );
+System.out.println("Stok :" + stock);
+System.out.println("Kategori :" + category);
+System.out.println("Status :" + status);
+System.out.println("Supplier :" + supplier);
+
+
+
+
+        
+        
     }
 }
