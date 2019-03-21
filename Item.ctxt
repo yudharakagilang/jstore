@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Item
 comment0.text=\r\n\ Class\ item\ digunakan\ untuk\ mendaftarkan\ \ barang\ \ pada\ jstore\r\n\ barang\ yang\ didaftarkan\ pada\ class\ ini\ akan\ memiliki\ beberapa\ atribut\ seperti\ \ id,\ nama,\ stock,\ harga,\ kategori\r\n\ dan\ suppliernya.\ Pada\ Class\ ini\ terdapat\ method\ untuk\ menSET\ ataupun\ mengambil\ nilai\ yang\ telah\ didtetapkan\ (get\ method)\r\n\ \r\n\r\n\ @author\ Gilang\ Yudharaka\r\n\ @version\ 28\ Februari\ 2019\r\n
-comment1.params=id\ name\ stock\ price\ category\ supplier\ status
-comment1.target=Item(int,\ java.lang.String,\ int,\ int,\ ItemCategory,\ Supplier,\ ItemStatus)
+comment1.params=id\ name\ status\ stock\ price\ category\ supplier
+comment1.target=Item(int,\ java.lang.String,\ ItemStatus,\ int,\ int,\ ItemCategory,\ Supplier)
 comment1.text=\r\n\ Constructor\ untuk\ object\ dari\ class\ Item\r\n@param\ name,stock,price,category,supllier\r\n
 comment10.params=name
 comment10.target=void\ setName(java.lang.String)

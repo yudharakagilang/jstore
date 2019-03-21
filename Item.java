@@ -25,7 +25,7 @@ public class Item{
      *@param name,stock,price,category,supllier
      */
 
-    public Item(int id, String name, int stock, int price, ItemCategory category, Supplier supplier, ItemStatus status){
+    public Item(int id, String name,ItemStatus status, int stock, int price, ItemCategory category, Supplier supplier){
         this.id=id;
         this.name=name;
         this.stock=stock;
@@ -143,14 +143,13 @@ public class Item{
      */
 
     public void printData(){
-System.out.println("==========ITEM=======");
-System.out.println("ID :" + id);
-System.out.println("Name :"  + name );
-System.out.println("Stok :" + stock);
-System.out.println("Kategori :" + category);
-System.out.println("Status :" + status);
-System.out.println("Supplier :" + supplier);
-
+        System.out.println("==========ITEM=======");
+        System.out.println("ID :" + id);
+        System.out.println("Name :"  + name );
+        System.out.println("Stok :" + stock);
+        System.out.println("Kategori :" + category);
+        System.out.println("Status :" + status);
+        System.out.println("Supplier :" + supplier.getName());
 
 
 

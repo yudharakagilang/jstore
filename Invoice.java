@@ -7,13 +7,14 @@
  * @version 28 Februari 2019
  */
 
-public class Invoice{
+public abstract class Invoice{
     private int id;
     private Item item;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
 
 
 
@@ -26,12 +27,13 @@ public class Invoice{
      * @param totalPrice
      */
 
-    public Invoice(int id, Item item, String date, int totalPrice, InvoiceStatus status){    
+    public Invoice(int id, Item item, String date,int totalItem, int totalPrice){    
         this.id=id;
         this.item=item;
         this.date=date;
         this.totalPrice=totalPrice;
-        this.status=status;
+        this.totalItem=totalItem;
+    
     }
     
         /**
@@ -82,7 +84,15 @@ public class Invoice{
      * 
      * @param id adalah parameter untuk method setId
      */
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    }
 
+    public InvoiceType getInvoiceType()
+    {
+        return type;
+    }
     public void setId(int id){
         this.id=id;
     }
@@ -133,7 +143,7 @@ public class Invoice{
      * 
      */
     
-    public void printData(){
-        System.out.println(totalPrice);
-    }
+    public abstract void printData();
+        
+    
 }

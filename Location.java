@@ -1,5 +1,4 @@
-/**
- * Class ini berfungsi untuk memasukkan lokasi digunakan untuk informasi
+/* * Class ini berfungsi untuk memasukkan lokasi digunakan untuk informasi
  * tambahan pada class lain (supplier)
  *
  * @author Gilang Yudharaka
@@ -87,6 +86,7 @@ public class Location{
         System.out.println("Provinsi :" + province);
         System.out.println("Kota :" + city);
         System.out.println("Deksripsi :" + description);
+        }
         
-    }
+    
 }
