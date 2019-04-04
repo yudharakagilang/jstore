@@ -11,12 +11,20 @@ public class Sell_Installment extends Invoice
     private InvoiceStatus INVOICE_STATUS;
     private int installmentPeriod;
     private int installmentPrice;
+    private Customer customer;
 
 
-    public Sell_Installment(int id, Item item, String date, int totalPrice, int totalItem, int installmentPeriod)
+    public Sell_Installment(int id, Item item,int totalItem, int installmentPeriod, Customer customer)
     {
-        super(id, item, date, totalPrice,totalItem);
+        super(id,item,totalItem);
+        this.installmentPeriod=installmentPeriod;
+        this.customer=customer;
+        
 
+    }
+    
+    public Customer getCustomer(){
+   return customer;
     }
 
  
@@ -50,8 +58,12 @@ public class Sell_Installment extends Invoice
 
     public void setTotalPrice()
     {
-        totalPrice=installmentPrice*installmentPeriod;
+        //totalPrice=installmentPrice*installmentPeriod;
     } 
+    
+    public void setCustomer(Customer customer){
+    this.customer=customer;
+    }
 
     public void printData(){
         System.out.println("==========INVOICE=======");
@@ -62,4 +74,18 @@ public class Sell_Installment extends Invoice
         System.out.println("Status :" + getInvoiceStatus());
         System.out.println("Installment price" + getInstallmentPrice());
     }
+    
+     public String toString() {
+        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
+                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
+                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
+                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
+                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
+                + this.INVOICE_STATUS + "Installment Period: " + this.installmentPeriod + "Sell success";}
+    
+    public void setInvoiceStatus(InvoiceStatus status){
+    
+    }
+    
 }
+

@@ -14,6 +14,6 @@ comment4.params=
 comment4.target=Supplier\ getSupplier()
 comment4.text=\r\n\ Method\ ini\ berfungsi\ untuk\ mengembalikan\ nilai\ supplier\r\n\ \r\n\ @return\ objek\ supplier\r\n
 comment5.params=
-comment5.target=java.lang.String[]\ getListSupplier()
+comment5.target=Supplier[]\ getListSupplier()
 comment5.text=\r\n\ method\ yang\ digunakan\ untuk\ mereturn\ list\ supplier\r\n\ \r\n\ @return\ list\ supplier\r\n
 numComments=6

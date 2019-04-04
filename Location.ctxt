@@ -23,6 +23,6 @@ comment7.params=city
 comment7.target=void\ setCity(java.lang.String)
 comment7.text=\r\n\ Method\ yang\ digunakan\ untuk\ mengubah\ nilai\ dari\ nama\ kota\r\n\ \r\n\ @param\ city\ adalah\ parameter\ untuk\ method\ setCity\r\n
 comment8.params=
-comment8.target=void\ printData()
+comment8.target=java.lang.String\ toString()
 comment8.text=\r\n\ Method\ yang\ digunakan\ untuk\ mencetak\ nama\ provinsi\r\n\ \r\n
 numComments=9

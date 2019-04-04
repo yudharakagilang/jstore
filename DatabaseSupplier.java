@@ -6,7 +6,7 @@
  * @version 28 Februari 2019
  */
 public class DatabaseSupplier{
-    private String[] listSupplier;
+    private Supplier[] listSupplier;
     private Supplier supplier;
 
 
@@ -47,7 +47,7 @@ public class DatabaseSupplier{
      * 
      * @return list supplier
      */
-    public String[] getListSupplier(){
+    public Supplier[] getListSupplier(){
     	return listSupplier;
     }
 }

@@ -127,12 +127,7 @@ public class Supplier{
      *
      *      
      */    
-    public void printData(){
-        System.out.println("==========SUPPLIER=======");
-        System.out.println("ID :" + id);
-        System.out.println("Name :" + name);
-        System.out.println("Email :" + email);
-        System.out.println("No telpon :" + phoneNumber);
-        System.out.println("Lokasi Supplier :" + location.getCity());
+    public String toString(){
+        return "========SUPPLIER=========\nID: "+id+"nama: "+"\nnama: "+name+"\nemail: "+email+"\nnomor telepon: "+phoneNumber+"\nlokasi: "+location.getCity()+", "+location.getProvince();
     }
 }

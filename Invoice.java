@@ -1,3 +1,5 @@
+
+import java.util.Calendar;
 /**
  * Kelas ini berfungsi untuk membuat invoice dari setiap transaksi. Invoice akan dibuat pada setiap
  * id transaks. Terdapat juga informasi seperti  nama ite m , tanggal dan total
@@ -10,11 +12,12 @@
 public abstract class Invoice{
     private int id;
     private Item item;
-    private String date;
-    protected int totalPrice;
+    //private String date;
+    private int totalPrice;
     private int totalItem;
-    private InvoiceStatus status;
-    private InvoiceType type;
+    private Calendar date;
+    //private InvoiceStatus status;
+    //private InvoiceType type;
 
 
 
@@ -27,12 +30,13 @@ public abstract class Invoice{
      * @param totalPrice
      */
 
-    public Invoice(int id, Item item, String date,int totalItem, int totalPrice){    
+    public Invoice(int id, Item item,int totalItem){    
         this.id=id;
         this.item=item;
-        this.date=date;
-        this.totalPrice=totalPrice;
         this.totalItem=totalItem;
+        setTotalPrice(totalItem*item.getPrice());
+        this.date= Calendar.getInstance();
+        
     
     }
     
@@ -60,7 +64,7 @@ public abstract class Invoice{
      * @return String tanggal invoice
      */
     
-    public String getDate(){
+    public Calendar getDate(){
         return date;
     }
       /**
@@ -72,9 +76,9 @@ public abstract class Invoice{
         return totalPrice;
     }
 
-    public InvoiceStatus status(){
-        return status;
-    }
+    //public InvoiceStatus status(){
+     //   return status;
+    //}
 
     public int getTotalItem(){
         return totalItem;
@@ -84,15 +88,11 @@ public abstract class Invoice{
      * 
      * @param id adalah parameter untuk method setId
      */
-    public InvoiceStatus getInvoiceStatus()
-    {
-        return status;
-    }
+    public abstract InvoiceStatus getInvoiceStatus();
+   
 
-    public InvoiceType getInvoiceType()
-    {
-        return type;
-    }
+    public abstract InvoiceType getInvoiceType();
+   
     public void setId(int id){
         this.id=id;
     }
@@ -116,7 +116,7 @@ public abstract class Invoice{
      * @param date adalah parameter untuk method setDate
      */
     
-    public void setDate(String date){
+    public void setDate(Calendar date){
         this.date=date;
     }
     
@@ -134,9 +134,9 @@ public abstract class Invoice{
     public void setTotalItem(int totalItem){
         this.totalItem=totalItem;
     }
-    public void setInvoiceStatus(InvoiceStatus status){
-        this.status=status;
-    }
+    
+    
+    public abstract void setInvoiceStatus(InvoiceStatus status);
 
       /**
      * Method yang digunakan untuk mencetak total harga dari invoice
@@ -144,6 +144,10 @@ public abstract class Invoice{
      */
     
     public abstract void printData();
+    
+     public abstract String toString();
+ 
+
         
     
 }
