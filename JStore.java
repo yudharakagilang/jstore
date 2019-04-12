@@ -12,10 +12,7 @@ public class JStore{
         Supplier supplier1 = new Supplier(1, "Gilang Yudharaka", "GilangYudharaka@gmail.com", "081310275390", location1);      
         Item item1 = new Item(13, "Mobill", ItemStatus.New, 10, 150, ItemCategory.Electronics, supplier1);
         DatabaseItem.addItem(item1);
-        Transaction.orderNewItem(item1);
-        Transaction.sellItemPaid(item1);
-        Transaction.sellItemUnpaid(item1);
-        Transaction.sellItemInstallment(item1);
+        
         
     }
 

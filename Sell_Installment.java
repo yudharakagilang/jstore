@@ -5,21 +5,29 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 public class Sell_Installment extends Invoice
 {
-    private InvoiceType INVOICE_TYPE;
-    private InvoiceStatus INVOICE_STATUS;
+    private static final InvoiceType INVOICE_TYPE= InvoiceType.Sell;
+    private static final InvoiceStatus INVOICE_STATUS=InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
+    private boolean isActive;
+    
 
 
-    public Sell_Installment(int id, Item item,int totalItem, int installmentPeriod, Customer customer)
+
+    public Sell_Installment(ArrayList<Integer> item, int InstallmentPeriod, Customer customer)
     {
-        super(id,item,totalItem);
+        super(item);
+        this.isActive=true;
         this.installmentPeriod=installmentPeriod;
-        this.customer=customer;
-        
+        this.customer=customer;   
 
     }
     
@@ -66,22 +74,33 @@ public class Sell_Installment extends Invoice
     }
 
     public void printData(){
-        System.out.println("==========INVOICE=======");
-        System.out.println("ID :" + getId());
-        System.out.println("Date :" + getDate());
-        System.out.println("Item yang terdapat :" + getItem().getName());
-        System.out.println("Total harga :" + getTotalPrice());
-        System.out.println("Status :" + getInvoiceStatus());
-        System.out.println("Installment price" + getInstallmentPrice());
+       
     }
     
      public String toString() {
-        return "===== Invoice =====" + "ID: " + this.getId() + "Item: " + this.getItem().getName() + "Amount:"
-                + this.getTotalItem() + "Buy Date: " + this.getDate() + "Price: " + this.getItem().getPrice()
-                + "Price total: " + this.getTotalPrice() + "Supplier ID: " + this.getItem().getSupplier().getId()
-                + "Supplier name: " + this.getItem().getSupplier().getName() + "Customer ID: "
-                + this.getCustomer().getId() + "Customer name: " + this.getCustomer().getName() + "status: "
-                + this.INVOICE_STATUS + "Installment Period: " + this.installmentPeriod + "Sell success";}
+        setTotalPrice(0);
+       for (int temp1 : this.getItem())
+       {
+           System.out.println(DatabaseItem.getItemFromID(temp1).toString());
+       }
+        
+       SimpleDateFormat sdf = new SimpleDateFormat ("dd MMMMM yyyy");
+	 return	"\n========INVOICE========" + 
+	 	"\nID: " +  getId() + 
+//		"\nItem: " + getItem().getName() +
+//		"\nAmount: "  + getTotalItem() +
+		"\nBuy date: " + sdf.format(getDate().getTime()) +
+//		"\nPrice: " + getItem().getPrice() +
+		"\nTotal price: " + getTotalPrice() +
+		"\nInstallment price: " + installmentPrice +
+//		"\nSupplier ID: " + getItem().getSupplier().getId() +
+//		"\nSupplier name: " + getItem().getSupplier().getName() +
+		"\nCustomer ID: " + customer.getId() +
+		"\nCustomer Name: " + customer.getName() +
+		"\nStatus: " + InvoiceStatus.Installment + 
+		"\nInstallment period: " + installmentPeriod +
+		"\nSell Success\n";
+    }
     
     public void setInvoiceStatus(InvoiceStatus status){
     

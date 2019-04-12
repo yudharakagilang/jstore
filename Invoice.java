@@ -8,14 +8,23 @@ import java.util.Calendar;
  * @author Gilang Yudharaka
  * @version 28 Februari 2019
  */
+import java.util.ArrayList;
 
-public abstract class Invoice{
+
+abstract public class Invoice{
     private int id;
-    private Item item;
+   // private Item item;
     //private String date;
     private int totalPrice;
-    private int totalItem;
+    //private int totalItem;
     private Calendar date;
+    private boolean isActive;
+    private Customer customer;
+    private ArrayList<Integer> item=new ArrayList<Integer>();
+
+    
+
+
     //private InvoiceStatus status;
     //private InvoiceType type;
 
@@ -30,13 +39,18 @@ public abstract class Invoice{
      * @param totalPrice
      */
 
-    public Invoice(int id, Item item,int totalItem){    
-        this.id=id;
+    public Invoice(ArrayList<Integer> item ){  
+        //this.id=  
+      /*  this.id=id;
         this.item=item;
         this.totalItem=totalItem;
         setTotalPrice(totalItem*item.getPrice());
         this.date= Calendar.getInstance();
-        
+        */
+
+        this.item=item;
+        this.id=DatabaseInvoice.getLastInvoiceID()+1;
+
     
     }
     
@@ -54,7 +68,7 @@ public abstract class Invoice{
      * @return objek item item invoice
      */
 
-    public Item getItem(){
+    public ArrayList<Integer> getItem(){
      return item;
     }
 
@@ -80,8 +94,15 @@ public abstract class Invoice{
      //   return status;
     //}
 
-    public int getTotalItem(){
+    /*public int getTotalItem(){
         return totalItem;
+    }*/
+
+    public boolean getisActive(){
+        return isActive;
+    }
+    public Customer getCustomer(){
+        return customer;
     }
        /**
      * Method yang digunakan untuk mengubah nilai id invoice
@@ -106,8 +127,10 @@ public abstract class Invoice{
     
 
 
-    public void setItem(Item item){
-        this.item=item;
+    public void setItem(ArrayList<Integer> item ){
+        id=DatabaseInvoice.getLastInvoiceID()+1;
+        this.item = item;
+
     }
 
        /**
@@ -128,13 +151,19 @@ public abstract class Invoice{
      */
 
     public void setTotalPrice(int totalPrice){
-        this.totalPrice=totalPrice;
+        for(Integer invoice : item)
+        {
+            this.totalPrice=this.totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
+        }
     }
 
-    public void setTotalItem(int totalItem){
+    /*public void setTotalItem(int totalItem){
         this.totalItem=totalItem;
     }
-    
+    */
+    public void setisActive(boolean isActive){
+        this.isActive=isActive;
+    }
     
     public abstract void setInvoiceStatus(InvoiceStatus status);
 

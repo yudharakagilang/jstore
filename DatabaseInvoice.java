@@ -2,45 +2,67 @@
  * Merupakan Class DatabaseInvoice.
  *
  */
+import java.util.ArrayList;
 public class DatabaseInvoice
 {
     // variabel yang digunakan dalam class
-    private Invoice[] listInvoice; // inisialisasi variabel
-    public static Invoice invoice;
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
+    private static int LAST_INVOICE_ID=0;
     
     /**
      * Method of class DatabaseInvoice
      * @return true
      */
-    public static boolean addInvoice(Invoice invoice)
-    {
-        // return dari accessor 
-        return true;
+    public static ArrayList<Invoice> getInvoiceDatabase(){
+        return INVOICE_DATABASE;
+
     }
 
-    public static boolean removeInvoice(Invoice invoice)
-    {
-        // return dari accessor 
+    public static int getLastInvoiceID(){
+        return LAST_INVOICE_ID;
+    }
+
+    public static  boolean addInvoice(Invoice invoice){
+        INVOICE_DATABASE.add(invoice);
+        LAST_INVOICE_ID=invoice.getId();
         return true;
     }
-    
-    
-    /**
-     * Method of class DatabaseInvoice
-     * @return supplier
-     */
-    public Invoice getInvoice()
-    {
-        // return dari accessor 
-        return invoice;
+    public static Invoice getInvoice(int id){
+        Invoice value=null;
+        for(Invoice invoice : INVOICE_DATABASE)
+        {
+            if(invoice.getId()==id)
+            {
+                value=invoice;
+            }
+        }
+        return value;
+
     }
-    
-    /**
-     * Method of class DatabaseInvoice
-     * @return listSupplier
-     */
-    public Invoice[] getListInvoice(){
-        // return dari accessor 
-        return listInvoice;
+
+    public static Invoice getActiveOrder(Customer customer){
+        Invoice value=null;
+        for(Invoice invoice : INVOICE_DATABASE)
+        {
+            if((invoice.getInvoiceStatus()==InvoiceStatus.Installment||invoice.getInvoiceStatus()==InvoiceStatus.Paid)&&invoice.getisActive()==true)
+            {
+                value=invoice;
+            }  
+        }
+        return value;
     }
-}
+  
+    
+    public static boolean removeInvoice(int id){
+        for(Invoice invoice : INVOICE_DATABASE){
+            if(invoice.getId() == id){
+                if (invoice.getisActive() == true) {
+                    invoice.setisActive(false);
+                }
+                INVOICE_DATABASE.remove(invoice);
+                return true;
+            }
+        }
+        return false;
+    }
+    }

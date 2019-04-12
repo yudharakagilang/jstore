@@ -29,9 +29,9 @@ public class Customer
         this.email=email;
         this.username=username;
         this.password=password;
-        this.id=id;
+        this.id=DatabaseCustomer.getLastCustomerID()+1;
         this.birthDate=birthDate;
-        this.birthDate.add(Calendar.MONTH, -1);
+        //this.birthDate.add(Calendar.MONTH, -1);
         
      
     }
@@ -42,10 +42,7 @@ public class Customer
         this.email=email;
         this.username=username;
         this.password=password;
-        this.id=id;
-       // this.year=year;
-       // this.month=month;
-        //this.dayOfMonth=dayOfMonth;
+        this.id=DatabaseCustomer.getLastCustomerID()+1;
         this.birthDate= new GregorianCalendar(year,month-1,dayOfMonth);
         
         

@@ -7,52 +7,100 @@
  * @author Gilang Yudharaka
  * @version 28 Februari 2019
  */
-public class DatabaseItem{
+import java.util.ArrayList;
+public class DatabaseItem
+{
     //public String listItem[];
     //private Item item;
-    public static Item itemDB;
-    private Item[] listItem;
+   // public static Item itemDB;
+    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
+    private static int LAST_ITEM_ID=0;
 
-     /**
-     * Constructor for objects of class DatabaseItem
-     */
+    public static ArrayList<Item> getItemDatabase(){
+        return ITEM_DATABASE;
 
-    public DatabaseItem(){
     }
-     /**
-     * method ini digunakan untuk menambah item kedalam database
-     *
-     * @return boolean true
-     */
-    
+
+    public static int getLastItemID(){
+        return LAST_ITEM_ID;
+    }
+
     public static boolean addItem(Item item){
-          //itemDB=item;
-        return true;
+        boolean value=false;
+        for(Item itemDB : ITEM_DATABASE)
+        {
+            if(item.getName()!=itemDB.getName()&&item.getStatus()!=itemDB.getStatus()&&item.getSupplier()!=itemDB.getSupplier())
+            {
+            ITEM_DATABASE.add(item);
+            LAST_ITEM_ID=item.getId();
+            value=true;
+            }
+        }
+        return value;
     }
-       /**
-     * method ini digunakan untuk menghapus item kedalam database
-     *
-     * @return boolean true
-     */
+    public static Item getItemFromID(int id){
+        Item value=null;
+        for(Item itemDB2 : ITEM_DATABASE)
+        {
+            if(itemDB2.getId()==id)
+            {
+                value=itemDB2;
+            }
+        }
+        return value;
+    }
+    public static ArrayList<Item> getItemFromSupplier(Supplier supplier){
+        ArrayList<Item> value=null;
+        for(Item itemDB : ITEM_DATABASE)
+        {
+            if(itemDB.getSupplier()==supplier)
+            {
+                value.add(itemDB);
+            }
+        }
+        return value;
+
+    }
+    public static ArrayList<Item> getItemFromCategory(Item category){
+        ArrayList<Item> value=null;
+        for(Item itemDB : ITEM_DATABASE)
+        {
+            if(itemDB.getCategory()==category.getCategory())
+            {
+                value.add(itemDB);
+            }
+        }
+        return value;
+    }
     
-    public boolean removeItem(Item item){
-        return true;
+    public static ArrayList<Item> getItemFromStatus(ItemStatus status){
+        ArrayList<Item> value=null;
+        for(Item  itemDB : ITEM_DATABASE)
+        {
+            if(itemDB.getStatus()==status)
+            {
+                value.add(itemDB);
+            }
+        }
+        return value;
     }
-     /**
-     * Method yang digunakan untuk mereturn nilai item
-     * 
-     * @return objek item
-     */
     
-    public Item getItem(){
-        return itemDB;
+    public static boolean removeItem(int id){
+
+        boolean value=false;
+        for(Item itemDB : ITEM_DATABASE)
+        {
+            if(itemDB.getId()==id)
+            {
+                ITEM_DATABASE.remove(id);
+                value=true;
+            }
+        }
+        return value;
     }
-    /**
-     * Method yang digunakan untuk mereturn nilai dari database item
-     * 
-     * @return list item
-     */
-    public Item[] getItemDatabase(){
-        return listItem;
     }
-}
+
+
+
+ 
+

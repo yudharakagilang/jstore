@@ -4,84 +4,74 @@
  *
  * @author Gilang
  * @version  */
+
+import java.util.*;
 public class Transaction
 {
     public static void orderNewItem(Item item){
-        /*Invoice invoiceNewItem = new Buy_Paid(11, item, "13/12/2019", 13, item.getPrice());
-        
-        if (invoiceNewItem instanceof Sell_Paid)
-        {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
-        }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-            item.printData();
-        invoiceNewItem.printData();
-        */
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
        
     }
 
     public static void orderSecondItem (Item item){
-        /*Invoice invoiceSecondItem = new Buy_Paid(12, item, "13/12/2019", 14, item.getPrice());
-        
-        if (invoiceSecondItem instanceof Sell_Paid)
-        {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
-        }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-              item.printData();
-        invoiceSecondItem.printData();
-        */
-       
-
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
     }
     public static void orderRefurbishedItem(Item item){
-        /*Invoice invoiceRefurbishedItem = new Buy_Paid(13,item, "13/12/2019", 15, item.getPrice());
-        
-        if (invoiceRefurbishedItem instanceof Sell_Paid)
-        {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
-        }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-
-                  item.printData();
-        invoiceRefurbishedItem.printData();
-        
-        */
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
        
 
     }
-    public static void sellItemPaid(Item item){
-        /*Invoice invoiceSelItemPaid = new Sell_Paid(14, item, "13/12/2019", 16, item.getPrice());
-        item.printData();
-        invoiceSelItemPaid.printData();
-        */
-        
-       
+    public static void sellItemPaid(Item item, Customer customer){
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Sell_Paid(itemID, customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+    public static void sellItemUnpaid(Item item, Customer customer){
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Sell_Unpaid(itemID,customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+    public static void sellItemInstallment(Item item, Customer customer, int installmentPeriod){
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice=new Sell_Installment(itemID,installmentPeriod,customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
 
+    public boolean finishTransaction(Invoice invoice){
+        boolean value=false;
+        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()){
+            if (invoiceDB.getId()==invoice.getId()){
+                invoice.setisActive(false);
+                System.out.print(invoice.getisActive());
+                value=true;
+            }
+        }
+        return value;
     }
-    public static void sellItemUnpaid(Item item){
-        /*Invoice invoiceSellItemUnpaid = new Sell_Unpaid(14, item, "13/12/2019", 16, item.getPrice(), "14/12/2019");
-        item.printData();
-        invoiceSellItemUnpaid.printData();
-        */
-        
+
+    public boolean cancelTransaction(Invoice invoice){
+        boolean value=false;
+        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()){
+               if (invoiceDB.getId()==invoice.getId()){
+                   DatabaseInvoice.removeInvoice(invoice.getId());
+                   value=true;
+               }
+           }
+        return value;
     }
-    public static void sellItemInstallment(Item item){
-        /*Invoice invoiceSellItemInstallment = new Sell_Installment(14, item, "13/12/2019", 16, item.getPrice(), 13);
-        item.printData();
-        invoiceSellItemInstallment.printData();
-        */
-        
-    }
+
 
 
 }
