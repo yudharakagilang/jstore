@@ -26,17 +26,18 @@ public class DatabaseItem
     }
 
     public static boolean addItem(Item item){
-        boolean value=false;
-        for(Item itemDB : ITEM_DATABASE)
+        boolean found = false;
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(item.getName()!=itemDB.getName()&&item.getStatus()!=itemDB.getStatus()&&item.getSupplier()!=itemDB.getSupplier())
+            if(temp.getName() == item.getName() && temp.getStatus() == item.getStatus()
+            && temp.getSupplier() == item.getSupplier()) 
             {
-            ITEM_DATABASE.add(item);
-            LAST_ITEM_ID=item.getId();
-            value=true;
+                return false;
             }
         }
-        return value;
+        ITEM_DATABASE.add(item);
+        LAST_ITEM_ID = item.getId();
+        return true;
     }
     public static Item getItemFromID(int id){
         Item value=null;

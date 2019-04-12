@@ -33,17 +33,18 @@ public class DatabaseSupplier
 
     public static boolean addSupplier(Supplier supplier)
     {
-        boolean value=false;
-        for(Supplier supplierDB : SUPPLIER_DATABASE)
+      for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if(supplier.getName()!=supplierDB.getName()&&supplier.getEmail()!=supplierDB.getEmail()&&supplier.getPhoneNumber()!=supplierDB.getPhoneNumber())
+            if((temp.getName() == supplier.getName()) && 
+            (temp.getEmail() == supplier.getEmail()) && 
+            (temp.getPhoneNumber() == supplier.getPhoneNumber())) 
             {
-            SUPPLIER_DATABASE.add(supplier);
-            LAST_SUPPLIER_ID=supplier.getId();
-            value=true;
+                return false;
             }
         }
-        return value;
+        SUPPLIER_DATABASE.add(supplier);
+        LAST_SUPPLIER_ID = supplier.getId();
+        return true;
     }
     public Supplier getSupplier(int id)
     {
@@ -60,17 +61,15 @@ public class DatabaseSupplier
 
     public static boolean removeSupplier(int id)
     {
-        boolean value=false;
-        for(Supplier supplierDB : SUPPLIER_DATABASE)
+         for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if(supplierDB.getId()==id)
+            if(temp.getId() == id)
             {
-                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
-                SUPPLIER_DATABASE.remove(id);
-                value=true;
+                DatabaseItem.getItemFromSupplier(temp).clear();
+                return true;
             }
         }
-        return value;
+        return false;
     }
     
 }

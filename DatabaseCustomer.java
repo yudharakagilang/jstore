@@ -23,17 +23,18 @@ public class DatabaseCustomer
     
     public static boolean addCustomer(Customer customer)
     {
-        boolean value=false;
-        for(Customer customerDB : CUSTOMER_DATABASE)
+        boolean found = false;
+        for(Customer temp : CUSTOMER_DATABASE)
         {
-            if(customer.getName()!=customerDB.getName()&&customer.getEmail()!=customerDB.getEmail())
+            if(temp.getName() == customer.getName() && temp.getEmail() 
+            == customer.getEmail())
             {
-            CUSTOMER_DATABASE.add(customer);
-            LAST_CUSTOMER_ID=customer.getId();
-            value=true;
+                return false;
             }
         }
-        return value;
+        CUSTOMER_DATABASE.add(customer);
+        LAST_CUSTOMER_ID = customer.getId();
+        return true;
     }
        /**
      * method ini digunakan untuk menghapus costumer kedalam database
@@ -47,16 +48,15 @@ public class DatabaseCustomer
 
     public static boolean removeCustomer(int id)
     {
-        boolean value=false;
-        for(Customer customerDB : CUSTOMER_DATABASE)
+        for(Customer temp : CUSTOMER_DATABASE) 
         {
-            if(customerDB.getId()==id)
+            if(temp.getId() == id) 
             {
-                CUSTOMER_DATABASE.remove(id);
-                value=true;
+                CUSTOMER_DATABASE.remove(temp);
+                return true;
             }
         }
-        return value;
+        return false;
     
     }
     

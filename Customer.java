@@ -23,7 +23,7 @@ public class Customer
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name, String email, String username , String password,int id, Calendar birthDate)
+    public Customer(String name, String email, String username , String password, Calendar birthDate)
     {
         this.name=name;
         this.email=email;
