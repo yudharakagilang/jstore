@@ -13,10 +13,7 @@ import java.util.ArrayList;
 
 abstract public class Invoice{
     private int id;
-   // private Item item;
-    //private String date;
-    private int totalPrice;
-    //private int totalItem;
+    public int totalPrice;
     private Calendar date;
     private boolean isActive;
     private Customer customer;
@@ -30,26 +27,13 @@ abstract public class Invoice{
 
 
 
-       /**
-     * Constructor for objects of class Invoice
-     * 
-     * @param id
-     * @param name
-     * @param date
-     * @param totalPrice
-     */
 
     public Invoice(ArrayList<Integer> item ){  
-        //this.id=  
-      /*  this.id=id;
-        this.item=item;
-        this.totalItem=totalItem;
-        setTotalPrice(totalItem*item.getPrice());
-        this.date= Calendar.getInstance();
-        */
+
 
         this.item=item;
         this.id=DatabaseInvoice.getLastInvoiceID()+1;
+        this.date=Calendar.getInstance();
 
     
     }
@@ -104,11 +88,7 @@ abstract public class Invoice{
     public Customer getCustomer(){
         return customer;
     }
-       /**
-     * Method yang digunakan untuk mengubah nilai id invoice
-     * 
-     * @param id adalah parameter untuk method setId
-     */
+
     public abstract InvoiceStatus getInvoiceStatus();
    
 
@@ -128,7 +108,7 @@ abstract public class Invoice{
 
 
     public void setItem(ArrayList<Integer> item ){
-        id=DatabaseInvoice.getLastInvoiceID()+1;
+        //id=DatabaseInvoice.getLastInvoiceID()+1;
         this.item = item;
 
     }
@@ -144,23 +124,18 @@ abstract public class Invoice{
     }
     
 
-     /**
-     * Method yang digunakan untuk mengubah total harga di invoice
-     * 
-     * @param totalPrice adalah parameter untuk method setTotalPrice
-     */
 
-    public void setTotalPrice(int totalPrice){
-        for(Integer invoice : item)
+
+    public void setTotalPrice(){
+        int tempTotalHarga=0;
+        for (int itemPtr : this.getItem())
         {
-            //this.totalPrice=this.totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
+            tempTotalHarga=tempTotalHarga+DatabaseItem.getItemFromID(itemPtr).getPrice();
         }
+        this.totalPrice=tempTotalHarga;
     }
 
-    /*public void setTotalItem(int totalItem){
-        this.totalItem=totalItem;
-    }
-    */
+
     public void setisActive(boolean isActive){
         this.isActive=isActive;
     }

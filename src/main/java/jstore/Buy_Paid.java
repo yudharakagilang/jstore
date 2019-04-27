@@ -24,9 +24,8 @@ public class Buy_Paid extends Invoice
     public Buy_Paid(ArrayList<Integer> item)
     {
         super(item);
-        this.isActive=false;
-
-      
+        setisActive(false);
+        this.setTotalPrice();
     }
 
 
@@ -51,6 +50,7 @@ public class Buy_Paid extends Invoice
     }
     
    public String toString() {
+       System.out.println("++++++++++++ BUY PAID ++++++++++++++++++");
     String string="==========INVOICE=======";
         string += "\nID ="+getId();
         string += "\nBuy date =" + getDate();

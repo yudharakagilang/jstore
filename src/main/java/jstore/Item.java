@@ -24,7 +24,7 @@ public class Item{
      *@param name,stock,price,category,supllier
      */
 
-    public Item(String name,ItemStatus status, int price, Supplier supplier, ItemCategory category){
+    public Item(String name, int price, ItemCategory category, ItemStatus status,  Supplier supplier){
         id=DatabaseItem.getLastItemID()+1;
         this.name=name;
         this.price=price;
@@ -96,8 +96,7 @@ public class Item{
     }
      /**
      * method untuk mengubah jumlah stock barang
-     * @param stock adalah parameter untuk method setStock
-     */
+
     
 
 

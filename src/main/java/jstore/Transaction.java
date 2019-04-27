@@ -62,9 +62,12 @@ public class Transaction
     public static boolean finishTransaction(Invoice invoice)
     {
         if(invoice.getInvoiceStatus().equals(InvoiceStatus.Installment)
-                && invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid)){
-            for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()){
-                if (invoiceDB.getId() == invoice.getId()) {
+                || invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid))
+        {
+            for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
+            {
+                if (invoiceDB.getId() == invoice.getId())
+                {
                     invoice.setisActive(false);
                     System.out.println("Invoice Status : " + invoice.getisActive());
                     return true;
@@ -76,20 +79,27 @@ public class Transaction
 
     public static boolean cancelTransaction(Invoice invoice)
     {
-        if(invoice.getInvoiceStatus().equals(InvoiceStatus.Installment)
-                && invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid)){
-            for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()) {
-                if (invoiceDB.getId() == invoice.getId()) {
-                    try {
-                        DatabaseInvoice.removeInvoice(invoice.getId());
-                    } catch (InvoiceNotFoundException e) {
-                        System.out.println(e.getExMessage());
+        {
+            if(invoice.getInvoiceStatus().equals(InvoiceStatus.Installment) || invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid))
+            {
+                for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
+                {
+                    if (invoiceDB.getId() == invoice.getId())
+                    {
+                        try
+                        {
+                            DatabaseInvoice.removeInvoice(invoice.getId());
+                        }
+                        catch (InvoiceNotFoundException e)
+                        {
+                            e.getExMessage();
+                        }
+                        return true;
                     }
-                    return true;
                 }
             }
+            return false;
         }
-        return false;
     }
 
 

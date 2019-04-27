@@ -16,11 +16,7 @@ public class DatabaseCustomer
         
     }
     
-     /**
-     * method ini digunakan untuk menambah costumer kedalam database
-     *
-     * @return boolean true
-     */
+
     
     public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException {
         for(Customer customerDB : CUSTOMER_DATABASE)
@@ -80,6 +76,19 @@ public class DatabaseCustomer
         //return listCustomer;
         return LAST_CUSTOMER_ID;
     }
-    
-    
+
+
+    public static Customer getCustomerLogin(String email, String password){
+        for (Customer customerPtr : CUSTOMER_DATABASE){
+            if (customerPtr.getEmail().equals(email) && customerPtr.getPassword().equals(password))
+            {
+                return customerPtr;
+            }
+        }
+        return null;
+    }
+
+
+
+
 }

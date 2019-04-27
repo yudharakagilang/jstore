@@ -17,17 +17,18 @@ public class Sell_Installment extends Invoice
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
-    private boolean isActive;
+    private boolean isActive=true;
     
 
 
 
-    public Sell_Installment(ArrayList<Integer> item, int InstallmentPeriod, Customer customer)
+    public Sell_Installment(ArrayList<Integer> item, int installmentPeriod, Customer customer)
     {
         super(item);
-        this.isActive=true;
+        setisActive(true);
         this.installmentPeriod=installmentPeriod;
-        this.customer=customer;   
+        this.customer=customer;
+        this.setTotalPrice();
 
     }
     
@@ -47,7 +48,6 @@ public class Sell_Installment extends Invoice
         return installmentPrice;
     }
 
-    
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
@@ -66,7 +66,16 @@ public class Sell_Installment extends Invoice
 
     public void setTotalPrice()
     {
-        //totalPrice=installmentPrice*installmentPeriod;
+
+        int tempTotalHarga=0;
+        for (int itemPtr : this.getItem())
+        {
+            tempTotalHarga=tempTotalHarga+DatabaseItem.getItemFromID(itemPtr).getPrice();
+        }
+
+        double tempInstallmentPrice = (tempTotalHarga/installmentPeriod)*1.02;
+        installmentPrice = (int) tempInstallmentPrice;
+        super.totalPrice=installmentPrice*installmentPeriod;
     } 
     
     public void setCustomer(Customer customer){
@@ -78,30 +87,26 @@ public class Sell_Installment extends Invoice
     }
     
      public String toString() {
-        setTotalPrice(0);
+
+         System.out.println("++++++++++++ SELL INSTALLMENT ++++++++++++++++++");
+        setTotalPrice();
        for (int temp1 : this.getItem())
        {
            System.out.println(DatabaseItem.getItemFromID(temp1).toString());
        }
         
        SimpleDateFormat sdf = new SimpleDateFormat ("dd MMMMM yyyy");
-	 return	"\n========INVOICE========" + 
-	 	"\nID: " +  getId() + 
-//		"\nItem: " + getItem().getName() +
-//		"\nAmount: "  + getTotalItem() +
-		//"\nBuy date: " + sdf.format(getDate().getTime()) +
-//		"\nPrice: " + getItem().getPrice() +
-		"\nTotal price: " + getTotalPrice() +
-		"\nInstallment price: " + installmentPrice +
-//		"\nSupplier ID: " + getItem().getSupplier().getId() +
-//		"\nSupplier name: " + getItem().getSupplier().getName() +
-		"\nCustomer ID: " + customer.getId() +
-		"\nStaus: " + this.isActive +
-		"\nCustomer Name: " + customer.getName() +
-		"\nStatus: " + InvoiceStatus.Installment + 
-		"\nInstallment period: " + installmentPeriod +
+	 return	 "\n========INVOICE========" +
+	 	     "\n Invoice ID: " +  getId()+
+             "\nCustomer ID: " + customer.getId() +
+             "\nCustomer Name: " + customer.getName() +
+		     "\nBuy date: " + sdf.format(getDate().getTime()) +
+		     "\nInstallment price: " + installmentPrice +
+             "\nStatus: " + this.isActive +
+             "\nInstallment period: " + installmentPeriod+
+             "\n===== END OF INVOICE ===";
 		
-		"\nSell Success\n";
+
     }
     
     public void setInvoiceStatus(InvoiceStatus status){

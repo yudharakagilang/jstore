@@ -83,7 +83,7 @@ public class DatabaseItem
             {
                 value.add(itemDB);
             }
-        }   
+        }
         return value;
     }
     
@@ -96,6 +96,7 @@ public class DatabaseItem
             {
                 ITEM_DATABASE.remove(id);
                 value=true;
+                return value;
             }
         }
         throw new ItemNotFoundException(id);

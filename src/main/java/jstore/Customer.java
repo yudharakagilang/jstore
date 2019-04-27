@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.regex.*;
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+
 
 /**
  * Write a description of class Customer here.
@@ -36,7 +39,7 @@ public class Customer
         this.password=password;
         this.id=DatabaseCustomer.getLastCustomerID()+1;
         this.birthDate=birthDate;
-        //this.birthDate.add(Calendar.MONTH, -1);
+        this.birthDate.add(Calendar.MONTH, -1);
 
 
     }
@@ -74,10 +77,11 @@ public class Customer
     }
 
      public Calendar getBirthDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+       /** SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         String birthDateString = sdf.format(birthDate.getTime());
         //System.out.printf("Birth date :  %s\n", birthDateString);
         System.out.println("Birth date :"+ birthDateString);
+        */
         return birthDate;
     }
 
@@ -133,6 +137,7 @@ public class Customer
     //this.year=year;
     //this.month=month;
     //this.dayOfMonth=dayOfMonth;
+
     this.birthDate= new GregorianCalendar(year,month-1,dayOfMonth);
     }
 

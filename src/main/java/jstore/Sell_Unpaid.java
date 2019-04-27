@@ -11,11 +11,11 @@ import java.text.SimpleDateFormat;
 public class Sell_Unpaid extends Invoice
 {
     
-    private static  InvoiceType INVOICE_TYPE=InvoiceType.Buy;
+    private static  InvoiceType INVOICE_TYPE=InvoiceType.Sell;
     private static InvoiceStatus INVOICE_STATUS=InvoiceStatus.Unpaid;
     private Calendar dueDate;
     private Customer customer;
-    private boolean isActive;
+    private boolean isActive=true;
 
 
     /**
@@ -25,7 +25,11 @@ public class Sell_Unpaid extends Invoice
     {
         super(item);
         this.customer=customer;
-        isActive=true;
+        setisActive(true);
+        this.setTotalPrice();
+        this.dueDate=(Calendar)getDate().clone();
+        dueDate.add(Calendar.DATE, +14);
+
     }
 
 
@@ -57,7 +61,8 @@ public class Sell_Unpaid extends Invoice
     }
     
     public String toString() {
-        setTotalPrice(0);
+        System.out.println("++++++++++++ SELL UNPAID ++++++++++++++++++");
+        setTotalPrice();
        for (int temp1 : this.getItem())
        {
            System.out.println(DatabaseItem.getItemFromID(temp1).toString());
@@ -68,9 +73,9 @@ public class Sell_Unpaid extends Invoice
 		"\nID: " +  getId() + 
 		"\nTotal price: " + getTotalPrice() +
 		"\nCustomer ID: " + customer.getId() +
-		     "\nStatus: " + this.isActive +
+             "\nStatus: " + this.isActive +
 		"\nCustomer Name: " + customer.getName() +
-		"\nStatus: " + InvoiceStatus.Unpaid + 
+		"\nStatus Invoice: " + InvoiceStatus.Unpaid +
 		"\nSell Success\n";
 }
     
