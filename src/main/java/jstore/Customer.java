@@ -31,8 +31,9 @@ public class Customer
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name, String email, String username , String password, Calendar birthDate)
+    public Customer(int id, String name, String email, String username , String password, Calendar birthDate)
     {
+        this.id=id;
         this.name=name;
         this.email=email;
         this.username=username;
@@ -44,8 +45,9 @@ public class Customer
 
     }
 
-       public Customer(String name, String email, String username , String password, int year, int month, int dayOfMonth)
+       public Customer(int id,String name, String email, String username , String password, int year, int month, int dayOfMonth)
     {
+        this.id=id;
         this.name=name;
         this.email=email;
         this.username=username;
@@ -134,9 +136,6 @@ public class Customer
     }
      public void setBirthDate(int year, int month, int dayOfMonth){
 
-    //this.year=year;
-    //this.month=month;
-    //this.dayOfMonth=dayOfMonth;
 
     this.birthDate= new GregorianCalendar(year,month-1,dayOfMonth);
     }
@@ -156,10 +155,4 @@ public class Customer
 
 }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
 

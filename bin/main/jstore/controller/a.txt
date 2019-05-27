@@ -1,0 +1,64 @@
+INSERT INTO `record`(value) VALUES (33);
+  <?php
+
+   $connect = mysqli_connect("localhost", "root", "", "hitungin");
+$query = '
+SELECT value, 
+UNIX_TIMESTAMP(CONCAT_WS(" ", date,time)) AS datetime 
+FROM record
+ORDER BY date DESC, time DESC
+';
+
+$result = mysqli_query($connect, $query);
+$rows = array();
+$table = array();
+
+$table['cols'] = array(
+ array(
+  'label' => 'Date Time', 
+  'type' => 'datetime'
+ ),
+ array(
+  'label' => 'Value', 
+  'type' => 'number'
+ )
+);
+
+while($row = mysqli_fetch_array($result))
+{
+ $sub_array = array();
+ $datetime = explode(".", $row["datetime"]);
+ $sub_array[] =  array(
+      "v" => 'Date(' . $datetime[0] . '000)'
+     );
+ $sub_array[] =  array(
+      "v" => $row["value"]
+     );
+ $rows[] =  array(
+     "c" => $sub_array
+    );
+}
+$table['rows'] = $rows;
+$jsonTable = json_encode($table);
+
+?>
+
+<script type="text/javascript">
+
+   google.charts.load('current', {'packages':['corechart']});
+   google.charts.setOnLoadCallback(drawChart);
+   function drawChart()
+   {
+    var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
+
+    var options = {
+     title:'Jumlah Orang ',
+     legend:{position:'bottom'},
+     chartArea:{width:'95%', height:'65%'}
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+
+    chart.draw(data, options);
+   }
+  </script>

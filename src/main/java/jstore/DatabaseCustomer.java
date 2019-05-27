@@ -15,9 +15,7 @@ public class DatabaseCustomer
     {
         
     }
-    
 
-    
     public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException {
         for(Customer customerDB : CUSTOMER_DATABASE)
         {

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="PostgreSQL - postgres@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.15">
+    <root id="1">
+      <ServerVersion>10.5</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="Mahasiswa">
+      <ObjectId>49185</ObjectId>
+      <StateNumber>761</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="3" parent="1" name="coba">
+      <ObjectId>82112</ObjectId>
+      <StateNumber>985</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="4" parent="1" name="coba_gilang">
+      <ObjectId>123049</ObjectId>
+      <StateNumber>1389</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="5" parent="1" name="contoh">
+      <ObjectId>106657</ObjectId>
+      <StateNumber>1375</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="6" parent="1" name="database_7">
+      <ObjectId>98440</ObjectId>
+      <StateNumber>1265</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="7" parent="1" name="gilang_10">
+      <ObjectId>147624</ObjectId>
+      <StateNumber>1475</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="8" parent="1" name="gilang_2">
+      <ObjectId>32801</ObjectId>
+      <StateNumber>635</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="9" parent="1" name="gilang_6">
+      <ObjectId>98426</ObjectId>
+      <StateNumber>1258</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="10" parent="1" name="gilang_6_cs">
+      <ObjectId>90173</ObjectId>
+      <StateNumber>1027</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="11" parent="1" name="gilang_7">
+      <ObjectId>98441</ObjectId>
+      <StateNumber>1266</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="12" parent="1" name="gilang_8">
+      <ObjectId>131233</ObjectId>
+      <StateNumber>1422</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="13" parent="1" name="gilangy_5">
+      <ObjectId>82174</ObjectId>
+      <StateNumber>1003</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="14" parent="1" name="gilangyudharaka_266">
+      <ObjectId>16408</ObjectId>
+      <StateNumber>593</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="15" parent="1" name="gilangyudharaka_4">
+      <ObjectId>41015</ObjectId>
+      <StateNumber>729</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="16" parent="1" name="gilangyudharaka_5">
+      <ObjectId>82113</ObjectId>
+      <StateNumber>987</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="17" parent="1" name="gilangyudharaka_6">
+      <ObjectId>41014</ObjectId>
+      <StateNumber>728</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="18" parent="1" name="gilangyudharaka_7">
+      <ObjectId>98629</ObjectId>
+      <StateNumber>1355</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="19" parent="1" name="gilangyudharaka_8">
+      <ObjectId>123082</ObjectId>
+      <StateNumber>1407</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="20" parent="1" name="gilangyudharaka_9">
+      <ObjectId>139425</ObjectId>
+      <StateNumber>1453</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="21" parent="1" name="gilangyudharakacoba">
+      <ObjectId>73823</ObjectId>
+      <StateNumber>904</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="22" parent="1" name="jstore">
+      <ObjectId>164066</ObjectId>
+      <StateNumber>1506</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="23" parent="1" name="mahasiswa">
+      <ObjectId>49189</ObjectId>
+      <StateNumber>768</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="24" parent="1" name="perpustakaan">
+      <ObjectId>24609</ObjectId>
+      <StateNumber>618</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="25" parent="1" name="postgres">
+      <ObjectId>12938</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <StateNumber>554</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>1531</IntrospectionStateNumber>
+      <Current>1</Current>
+    </database>
+    <database id="26" parent="1" name="proyekkk">
+      <ObjectId>155866</ObjectId>
+      <StateNumber>1503</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="27" parent="1" name="tp8_gilangyudharaka">
+      <ObjectId>114849</ObjectId>
+      <StateNumber>1378</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="28" parent="1" name="tugasmodul4">
+      <ObjectId>40993</ObjectId>
+      <StateNumber>670</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <role id="29" parent="1" name="gilang_10">
+      <ObjectId>147625</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="30" parent="1" name="gilang_9">
+      <ObjectId>139426</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="31" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="32" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="33" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="34" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="35" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="36" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <Replication>1</Replication>
+      <BypassRls>1</BypassRls>
+    </role>
+    <role id="37" parent="1" name="sbd_gilangyudharaka">
+      <ObjectId>16405</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="38" parent="1" name="sbd_group">
+      <ObjectId>16407</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="39" parent="1" name="user_16068252662">
+      <ObjectId>16423</ObjectId>
+      <Inherit>1</Inherit>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="40" parent="1" name="user_16068252663">
+      <ObjectId>16424</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+  </database-model>
+</dataSource>

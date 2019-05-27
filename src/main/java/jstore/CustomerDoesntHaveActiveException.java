@@ -16,6 +16,7 @@ public class CustomerDoesntHaveActiveException extends Exception
 
     public String getExMessage()
     {
-        return super.getMessage() + customer_error + "\ndoesn't have active invoice";
+
+        return super.getMessage() + customer_error+ "doesnt have active invoice\n";
     }
-}
+    }

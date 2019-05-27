@@ -15,7 +15,7 @@ public class Sell_Unpaid extends Invoice
     private static InvoiceStatus INVOICE_STATUS=InvoiceStatus.Unpaid;
     private Calendar dueDate;
     private Customer customer;
-    private boolean isActive=true;
+    private boolean isActive;
 
 
     /**
